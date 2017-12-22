@@ -59,17 +59,26 @@ public class TicTacToeTest {
 
     @Test
     public void play_xPopulatedHorizontal_xWon() {
+        game.play(1,1); //X
+        game.play(2,2); //O
+        game.play(2,1); //X
+        game.play(3,3); //O
+        String message = game.play(3, 1); //X
 
+        System.out.println(game.boardStatus());
+
+        assertEquals("X won!", message);
     }
+
 
     @Test
     public void nextPlayer_firstMove_X() {
+        game.play(1,1);
         assertEquals('X', game.nextPlayer());
     }
 
     @Test
     public void nextPlayer_afterXTurn_O() {
-        game.play(1,1);
         assertEquals('O', game.nextPlayer());
     }
 }
